@@ -5,6 +5,13 @@ import java.util.Date;
 public class CompteCourant extends Compte{
     private double decouvert;
 
+    public CompteCourant() {
+    }
+
+    public CompteCourant(int code, double solde, double decouvert) {
+        super(code, solde);
+        this.decouvert = decouvert;
+    }
     @Override
     public void retirer(double montant) {
         if(montant > solde + decouvert) throw new RuntimeException("solde insuffisant !");
@@ -18,11 +25,5 @@ public class CompteCourant extends Compte{
 
     }
 
-    public CompteCourant() {
-    }
 
-    public CompteCourant(int code, double solde, double decouvert) {
-        super(code, solde);
-        this.decouvert = decouvert;
-    }
 }
